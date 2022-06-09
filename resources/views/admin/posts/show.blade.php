@@ -4,29 +4,28 @@
 
 @include('admin.includes.messages.success')
 
-    <div class="container mt-4 d-flex align-items-center">
+    <div class="container mt-4 d-flex justify-content-center align-items-center">
         <div class="mr-5">
             <img src="{{$post->image}}" alt="{{$post->title}}" width="250">
     
             <h2>
                 {{$post->title}}
             </h2>
+
+            @if ($post->Category)
+                <h4 class="badge badge-pill badge-{{$post->Category->color}}">{{$post->Category->label}}</h4>
+                @else
+                <h5>Non esiste una categoria associata</h5>
+            @endif
     
-            <p>
+            <p class="mb-0">
                 {{$post->content}}
             </p>
         </div>
 
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center align-self-end">
             <a href="{{route('admin.posts.edit', $post->id)}}" class="btn btn-warning mr-1 h-100">Edit</a>
-            <form action="{{route('admin.posts.destroy', $post->id)}}" method="post" data-name="{{$post->title}}" class="deleteForm m-0">
-                
-                @method('DELETE')
-                @csrf
-
-                <button type="submit" class="btn btn-danger">Delete</button>
-
-            </form>
+            @include('admin.includes.deletePost')
         </div>
     </div>
 

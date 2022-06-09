@@ -17,6 +17,7 @@
             <tr>
                 <th scope="col">Image</th>
                 <th scope="col">Title</th>
+                <th scope="col">Category</th>
                 <th scope="col">Content</th>
                 <th scope="col">Slug</th>
                 <th scope="col">Actions</th>
@@ -33,6 +34,16 @@
                             {{$post->title}}
                         </td>
                         <td class="align-middle">
+                            {{-- {{dd($post->Category)}} --}}
+                               @if ($post->Category)
+                                    <span class="badge badge-pill badge-{{$post->Category->color}}">
+                                       {{$post->Category->label}}
+                                    </span>
+                                @else
+                                    <span class="text-center"> - </span>
+                               @endif
+                            </td>
+                        <td class="align-middle">
                             <p>{{$post->content}}</p>
                         </td>
                         <td class="align-middle">{{$post->slug}}</td>
@@ -41,14 +52,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <a href="{{route('admin.posts.show', $post->id)}}" class="btn btn-primary">View</a>
                                 <a href="{{route('admin.posts.edit', $post->id)}}" class="btn btn-warning mx-1">Edit</a>
-                                <form action="{{route('admin.posts.destroy', $post->id)}}" method="post" data-name="{{$post->title}}" class="deleteForm m-0">
-                                    
-                                    @method('DELETE')
-                                    @csrf
-    
-                                    <button type="submit" class="btn btn-danger">Delete</button>
-    
-                                </form>
+                               @include('admin.includes.deletePost')
                             </div>
                         </td>
                     </tr>

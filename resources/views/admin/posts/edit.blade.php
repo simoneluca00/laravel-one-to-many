@@ -20,6 +20,22 @@
                 <input type="text" name="title" class="form-control" id="title" placeholder="Titolo" value="{{old('title', $post->title)}}" maxlength="255" required>
             </div>
             <div class="form-group">
+                <label for="category">Modifica la categoria del post:</label>
+                <select name="category_id" id="category">
+                    <option value="">Nessuna Categoria</option>
+                    @foreach ($categories as $category)
+    
+                    <option value="{{$category->id}}"
+                        @if (old('category_id', $post->category_id) == $category->id) selected @endif >
+                        
+                        {{$category->label}}
+                           
+                    </option>
+    
+                   @endforeach
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="content">Modifica la descrizione del post:</label>
                 <textarea class="form-control" id="content" name="content" rows="3" placeholder="Descrizione" required>{{old('content', $post->content)}}</textarea>
             </div>

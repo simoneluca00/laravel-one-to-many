@@ -28,6 +28,9 @@ Route::middleware('auth')
 
     // la URI per queste rotte sarà "localhost/admin/posts" -> ciò viene specificato nel metodo "prefix" 
     Route::resource('posts', 'PostController');
+
+    // la URI per queste rotte sarà "localhost/admin/categories" -> ciò viene specificato nel metodo "prefix" 
+    Route::resource('categories', 'CategoryController');
 });
 
 Route::get('{any?}', function(){
