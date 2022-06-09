@@ -1,4 +1,5 @@
 const deleteForms = document.querySelectorAll('.deleteForm');
+console.log(deleteForms)
 
 deleteForms.forEach(form => {
     

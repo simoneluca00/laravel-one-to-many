@@ -39,6 +39,10 @@ class CategorySeeder extends Seeder
                 'label' => 'Case Study',
                 'color' => 'warning'
             ],
+            [
+                'label' => 'Solution',
+                'color' => 'light'
+            ],
         ];
 
         // 2) ciclo foreach per far si che ogni singolo array corrisponda ad un record dell'entità

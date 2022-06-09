@@ -10,7 +10,7 @@
             EDIT <a href="{{route('admin.posts.show', $post->id)}}">{{$post->title}}</a>
         </h2>
 
-        <form action="{{route('admin.posts.update', $post->id)}}" method="post">
+        <form action="{{route('admin.posts.update', $post->id)}}" method="POST">
             @method('PUT')
 
             @csrf

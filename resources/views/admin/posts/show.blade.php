@@ -33,5 +33,5 @@
 
 @section('scripts')
     {{-- js confirm quando si vuole eliminare un record --}}
-    <script src="{{asset('js/deleteConfirm.js')}}"></script>
+    <script src="{{asset('/js/deleteConfirm.js')}}"></script>
 @endsection

@@ -1,15 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    @if (session('message'))
-    <div class="alert alert-success">
-        {{session('message')}}
-    </div>
-    @endif
 
-    <div class="container">
-        <div class="text-center">
-            <a class="btn btn-success mb-4" href="{{route('admin.posts.create')}}">Crea un nuovo post</a>
+   @include('admin.includes.messages.success')
+
+    <div class="container mt-4">
+        <div class="text-center mb-4">
+            <a class="btn btn-success" href="{{route('admin.posts.create')}}">Crea un nuovo post</a>
         </div>
 
         <table class="table table-dark">
@@ -68,5 +65,5 @@
 
 @section('scripts')
     {{-- js confirm quando si vuole eliminare un record --}}
-    <script src="{{asset('js/deleteConfirm.js')}}"></script>
+    <script src="{{asset('/js/deleteConfirm.js')}}"></script>
 @endsection
